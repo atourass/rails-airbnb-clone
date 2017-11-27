@@ -1,0 +1,17 @@
+<div class="container">
+
+<h1 class="text-center"> Create a vehicle
+</h1>
+
+  <div class="row">
+    <div class="col-xs-12">
+
+      <%= simple_form_for @vehicle do |vehicle| %>
+        <%= app.input :model, label: "Model" %>
+        <%= app.input :hp, label: "HP" %>
+        <%= app.button :submit, "Confirm", class: "btn-primary" %>
+      <% end %>
+
+    </div>
+  </div>
+</div>
