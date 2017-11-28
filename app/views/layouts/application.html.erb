@@ -9,8 +9,14 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
-    <%= render 'shared/flashes' %>
-    <%= yield %>
-    <%= javascript_include_tag 'application' %>
+   <%= render 'shared/flashes' %>
+   <%= render 'layouts/navbar' %>
+   <div class="container">
+    <div class="view">
+      <%= yield %>
+    </div>
+   </div>
+   <%= render 'layouts/footer' %>
+   <%= javascript_include_tag 'application' %>
   </body>
 </html>
