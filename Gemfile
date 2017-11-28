@@ -1,7 +1,6 @@
 source 'https://rubygems.org'
 ruby '2.3.5'
 
-gem 'faker'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'pg'
@@ -19,6 +18,7 @@ gem 'uglifier'
 gem 'devise'
 
 group :development, :test do
+  gem 'faker'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'web-console', '>= 3.3.0'
