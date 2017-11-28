@@ -32,8 +32,12 @@ class VehiclesController < ApplicationController
   end
 
   def destroy
-    @vehicle.destroy
-    redirect_to vehicles_path
+    @vehicule.bookings.each do |booking|
+      @vehicle.destroy
+      redirect_to vehicles_path
+    else
+      raise "Cannot delete vehicle with bookings"
+    end
   end
 
   private
