@@ -23,7 +23,6 @@ BRANDS = %w(Honda, Suzuki, Harley, BMW, Kawasaki)
   )
     vehicle.user = user
     vehicle.save
-  end
 end
 
 
