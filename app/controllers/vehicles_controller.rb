@@ -32,7 +32,7 @@ class VehiclesController < ApplicationController
   end
 
   def destroy
-    @vehicule.bookings.each do |booking|
+    if @vehicule.bookings.nil?
       @vehicle.destroy
       redirect_to vehicles_path
     else
