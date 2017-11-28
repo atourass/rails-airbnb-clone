@@ -25,6 +25,7 @@ gem 'coffee-rails'
 
 
 group :development, :test do
+  gem 'faker'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'web-console', '>= 3.3.0'

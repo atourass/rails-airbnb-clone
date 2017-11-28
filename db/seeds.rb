@@ -5,3 +5,25 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Vehicle.destroy_all
+User.destroy_all
+
+require 'faker'
+BRANDS = %w(Honda, Suzuki, Harley, BMW, Kawasaki)
+10.times do
+  user = User.create!(
+    email: Faker::Internet.email,
+    password: Faker::Internet.password(8)
+  )
+  vehicle = Vehicle.new(
+    brand:  BRANDS.sample,
+    price:  (25..100).to_a.sample,
+    description: "Trop bien",
+    model: %w(125 250 350 500 750).to_a.sample
+  )
+    vehicle.user = user
+    vehicle.save
+end
+
+
+puts 'Finished!'
