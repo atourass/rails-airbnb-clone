@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="row">
+    <% @vehicles.each do |vehicle| %>
+    <div class="col-xs-12 col-sm-4">
+      <%= render 'layouts/card', vehicle: vehicle %>
+    </div>
+    <%end%>
+  </div>
+</div>
