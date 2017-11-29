@@ -15,6 +15,7 @@ before_action :set_booking, only: [:show, :edit, :update, :destroy]
     @vehicle = Vehicle.find(params[:id])
     @booking = Booking.new(booking_params)
     @booking.user = @user
+    @booking.vehicle = @vehicle
     if @booking.save
       redirect_to booking_path(@booking)
     else
