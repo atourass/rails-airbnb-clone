@@ -1,0 +1,7 @@
+<%= simple_form_for(@booking) do |f| %>
+    <%= f.input :message %>
+    <%= f.input :date_from, as: :date, start_day: Date.today.day, end_year: Date.today.year + 1, order: [:day, :month, :year] %>
+    <%= f.input :date_to, as: :date, start_day: Date.today.day, end_year: Date.today.year + 1, order: [:day, :month, :year] %>
+    <%= f.button :submit, class: "btn-success" %>
+  </div>
+<% end %>

@@ -1,8 +1,9 @@
 class BookingsController < ApplicationController
+skip_before_action :authenticate_user!, only: :new
 before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bookings = booking.all
+    @bookings = Booking.all
   end
 
   def new
@@ -45,6 +46,6 @@ before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
   end
 
   def booking_params
-    params.require(:booking).permit(:price, :availability, :kms, :brand, :model, :description, :cc, :photo)
+    params.require(:booking).permit(:date_from, :date_to, :message)
   end
 end
