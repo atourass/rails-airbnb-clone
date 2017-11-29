@@ -1,7 +1,7 @@
 class VehiclesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
-  before_action :set_user_details, only: [:show]
+  before_action :set_user_details, only: [:show, :update]
   def index
     @vehicles = Vehicle.all
   end
@@ -12,8 +12,8 @@ class VehiclesController < ApplicationController
 
   def create
     @user = current_user
-    @vehicle.user = @user
     @vehicle = Vehicle.new(vehicle_params)
+    @vehicle.user = @user
     if @vehicle.save
       redirect_to vehicle_path(@vehicle)
     else
