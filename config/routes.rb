@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'vehicles#index'
 
+  get 'dashboard', to: 'dashboard#index'
+
   resources :bookings, only: [:show]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -12,6 +14,6 @@ Rails.application.routes.draw do
   end
   resources :bookings, only: [:edit, :update]
 
-  # resources :dashboards, only: :index
+
   mount Attachinary::Engine => "/attachinary"
 end
