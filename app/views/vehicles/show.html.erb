@@ -1,0 +1,29 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <% if @user.photo? %>
+      <%= cl_image_tag @user.photo.path, width: 30, height: 30, crop: :fill %>
+      <% end %>
+      <%= @user.first_name %>
+      <%= @user.last_name %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h5>Brand: <%=  @vehicle.brand %></h5>
+      <h5>Model: <%= @vehicle.model %></h5>
+      <h5>CC: <%= @vehicle.cc %></h5>
+      <h5>Kms/day: <%= @vehicle.kms %></h5>
+      <h5>Price/day: <%= @vehicle.price  %>€</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <% if @vehicle.photo? %>
+      <%= cl_image_tag @user.vehicle.path, width: 100, height: 100, crop: :fill %>
+      <% end %>
+    </div>
+  </div>
+
+</div>
