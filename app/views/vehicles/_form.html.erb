@@ -1,0 +1,9 @@
+<%= simple_form_for(vehicle) do |f| %>
+    <%= f.input :brand %>
+    <%= f.input :model %>
+    <%= f.input :price %>
+    <%= f.input :kms, label: "Kms allowed per day" %>
+    <%= f.text_field :description %>
+    <%= f.button :submit, class: "btn-success" %>
+  </div>
+<% end %>
