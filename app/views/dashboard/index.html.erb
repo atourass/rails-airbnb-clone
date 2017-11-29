@@ -2,16 +2,24 @@
   <div class="row">
 
     <div class="col-xs-6">
-      <%= @bookings.each do |b| %>
-       <%= @b %>
-      <%= end %>
+      <ul class="list-group">
+        <% @bookings.each do |booking| %>
+          <li class="list-group-item">
+            <%= render 'bookings/message', booking: booking %>
+          </li>
+        <%= end %>
+      </ul>
     </div>
 
-    <div class="col-xs-6">
-      <%= @vehicles.each do |v| %>
-      <%= @v %>
-      <%= end %>
-    </div>
+   <div class="col-xs-6">
+     <ul class="list-group">
+        <%= @vehicles.each do |vehicle| %>
+          <li class="list-group-item">
+            <%= render 'layouts/card', vehicle: vehicle %>
+          </li>
+         <%= end %>
+     </ul>
+   </div>
 
   </div>
 </div>

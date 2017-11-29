@@ -3,7 +3,9 @@ skip_before_action :authenticate_user!, only: :new
 before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
-    @bookings = Booking.all
+    # @bookings = Booking.all
+    vehicle = Vehicle.find(params[:id])
+    @bookings = Booking.where(vehicle: vehicle)
   end
 
   def new
