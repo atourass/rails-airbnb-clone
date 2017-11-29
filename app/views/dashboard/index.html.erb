@@ -7,17 +7,17 @@
           <li class="list-group-item">
             <%= render 'bookings/message', booking: booking %>
           </li>
-        <%= end %>
+        <% end %>
       </ul>
     </div>
 
-   <div class="col-xs-6">
+   <div class="col-xs-6 offset-6">
      <ul class="list-group">
-        <%= @vehicles.each do |vehicle| %>
+        <% @vehicles.each do |vehicle| %>
           <li class="list-group-item">
             <%= render 'layouts/card', vehicle: vehicle %>
           </li>
-         <%= end %>
+         <% end %>
      </ul>
    </div>
 
