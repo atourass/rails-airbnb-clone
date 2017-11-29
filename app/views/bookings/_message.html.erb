@@ -1,5 +1,7 @@
 <div class="message">
-  <%= cl_image_tag booking.user.photo.path, width: 30, height: 30, crop: :fill %>
+  <% if booking.user.photo? %>
+    <%= cl_image_tag booking.user.photo.path, width: 30, height: 30, crop: :fill %>
+  <% end %>
   <div class="message-name">
     <h3><%= booking.user.first_name %></h3>
     <p><%= booking.created_at %></p>
