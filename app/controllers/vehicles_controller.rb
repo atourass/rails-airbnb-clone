@@ -12,7 +12,7 @@ class VehiclesController < ApplicationController
 
   def create
     @user = current_user
-    @vehicule.user = @user
+    @vehicle.user = @user
     @vehicle = Vehicle.new(vehicle_params)
     if @vehicle.save
       redirect_to vehicle_path(@vehicle)
@@ -34,7 +34,7 @@ class VehiclesController < ApplicationController
   end
 
   def destroy
-    if @vehicule.bookings.nil?
+    if @vehicle.bookings.nil?
       @vehicle.destroy
       redirect_to vehicles_path
     else
