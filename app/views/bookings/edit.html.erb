@@ -1,0 +1,6 @@
+   <%= render 'message', booking: @booking %>
+   <%= simple_form_for(@booking) do |f| %>
+    <%= f.input :status, collection: %w(Accepted Declined) %>
+    <%= f.button :submit, class: "btn-success" %>
+<% end %>
+
