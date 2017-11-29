@@ -1,7 +1,7 @@
 class VehiclesController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
-  before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
-
+  skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_vehicle, only: [:show, :edit, :update, :destroy]
+  before_action :set_user_details, only: [:show]
   def index
     @vehicles = Vehicle.all
   end
@@ -46,6 +46,10 @@ class VehiclesController < ApplicationController
 
   def set_vehicle
     @vehicle = Vehicle.find(params[:id])
+  end
+
+  def set_user_details
+    @user = User.find(@vehicle.user_id)
   end
 
   def vehicle_params
