@@ -15,13 +15,13 @@
   <div class="message-status">
     <% case booking.status %>
       <% when "Pending" %>
-      <p class="status pending"><%= booking.status %></p>
+      <p class="status pending"><%= link_to "#{booking.status}", edit_booking_path(booking) %></p>
       <% when "Accepted" %>
-      <p class="status accepted"><%= booking.status %></p>
+      <p class="status accepted"><%= link_to "#{booking.status}", edit_booking_path(booking) %></p>
       <% when "Declined" %>
-      <p class="status declined"><%= booking.status %></p>
+      <p class="status declined"><%= link_to "#{booking.status}", edit_booking_path(booking) %></p>
       <% when "Cancelled" %>
-      <p class="status cancelled"><%= booking.status %></p>
+      <p class="status cancelled"><%= link_to "#{booking.status}", edit_booking_path(booking) %></p>
       <% end %>
     <p class="price"><%= booking.vehicle.price %></p>
   </div>
