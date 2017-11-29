@@ -1,0 +1,36 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <h4>Booking number: <%= @booking.id %></h4>
+      <% if @booking.user.photo? %>
+        <%= cl_image_tag @booking.user.photo.path, width: 30, height: 30, crop: :fill %>
+      <% end %>
+      <h5>Owner: <%= @booking.user.first_name %> <%= @booking.user.last_name %></h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h5>Brand: <%=  @booking.vehicle.brand %></h5>
+      <h5>Model: <%= @booking.vehicle.model %></h5>
+      <h5>CC: <%= @booking.vehicle.cc %></h5>
+      <h5>Kms/day: <%= @booking.vehicle.kms %></h5>
+      <h5>Price/day: <%= @booking.vehicle.price  %>€</h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <h5>From: <%=  @booking.date_from %></h5>
+      <h5>To: <%= @booking.date_to %></h5>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <% if @booking.vehicle.photo? %>
+      <%= cl_image_tag @booking.vehicle.photo.path, width: 100, height: 100, crop: :fill %>
+      <% end %>
+    </div>
+  </div>
+
+
+</div>
