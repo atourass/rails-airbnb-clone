@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
 skip_before_action :authenticate_user!, only: :new
-before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
+before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
   def index
     @bookings = Booking.all
@@ -15,6 +15,7 @@ before_action :set_restaurant, only: [:show, :edit, :update, :destroy]
     @vehicle = Vehicle.find(params[:id])
     @booking = Booking.new(booking_params)
     @booking.user = @user
+    @booking.vehicle = @vehicle
     if @booking.save
       redirect_to booking_path(@booking)
     else

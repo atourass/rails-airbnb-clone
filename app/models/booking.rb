@@ -1,7 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :vehicle
-  validates :date_from, :date_to, :message, presence: true
+  validates :vehicle, :user, :date_from, :date_to, :message, presence: true
   validate :dates_validations
 
   def dates_validations
