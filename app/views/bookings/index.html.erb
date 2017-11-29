@@ -1,0 +1,7 @@
+<ul class="list-group">
+   <% @bookings.each do |booking| %>
+  <li class="list-group-item">
+   <%= render 'message', booking: booking %>
+  </li>
+  <% end %>
+</ul>

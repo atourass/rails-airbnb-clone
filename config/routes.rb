@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resources :bookings, only: [:index, :new, :create]
     end
   end
-  # resources :bookings, e: [:index, :destroy]
+  resources :bookings, only: [:edit, :update]
 
   # resources :dashboards, only: :index
   mount Attachinary::Engine => "/attachinary"
