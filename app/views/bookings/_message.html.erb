@@ -15,14 +15,17 @@
   <div class="message-status">
     <% case booking.status %>
       <% when "Pending" %>
-      <p class="status pending"><%= link_to "#{booking.status}", edit_booking_path(booking) %></p>
+      <p class="status pending"><%= booking.status %></p>
       <% when "Accepted" %>
-      <p class="status accepted"><%= link_to "#{booking.status}", edit_booking_path(booking) %></p>
+      <p class="status accepted"><%= booking.status %></p>
       <% when "Declined" %>
-      <p class="status declined"><%= link_to "#{booking.status}", edit_booking_path(booking) %></p>
+      <p class="status declined"><%= booking.status %></p>
       <% when "Cancelled" %>
-      <p class="status cancelled"><%= link_to "#{booking.status}", edit_booking_path(booking) %></p>
+      <p class="status cancelled"><%= booking.status %></p>
       <% end %>
     <p class="price"><%= booking.vehicle.price %></p>
+  </div>
+  <div class="message-status">
+    <%= link_to "Edit", edit_booking_path(booking) , class: "navbar-wagon-item navbar-wagon-link" %>
   </div>
 </div>
