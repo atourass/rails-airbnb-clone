@@ -1,38 +1,64 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-12">
-      <h4>Booking number: <%= @booking.id %></h4>
-      <h5>Status: <%= @booking.status %></h5>
-      <% if @booking.user.photo? %>
+     <h3>Booking number: <%= @booking.id %></h3>
+       <h5>Status: <%= @booking.status %></h5>
+      <div class="col-md-6">
+     <h5>Owner: <%= @booking.user.first_name %> <%= @booking.user.last_name %></h5>
+      </div>
+      <div class="col-md-6 text-center">
+        <% if @booking.user.photo? %>
         <%= cl_image_tag @booking.user.photo.path, width: 30, height: 30, crop: :fill %>
       <% end %>
-      <h5>Owner: <%= @booking.user.first_name %> <%= @booking.user.last_name %></h5>
-    </div>
+      </div>
   </div>
+</div>
+
+<div class="container">
   <div class="row">
-    <div class="col-sm-12">
-      <h5>Brand: <%=  @booking.vehicle.brand %></h5>
-      <h5>Model: <%= @booking.vehicle.model %></h5>
-      <h5>CC: <%= @booking.vehicle.cc %></h5>
-      <h5>Kms/day: <%= @booking.vehicle.kms %></h5>
-      <h5>Price/day: <%= @booking.vehicle.price  %>€</h5>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <h5>From: <%=  @booking.date_from %></h5>
-      <h5>To: <%= @booking.date_to %></h5>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-sm-12">
+    <h3>Booking Information</h3>
+      <div class="col-md-6">
+      <table class="table table-striped">
+        <tr>
+          <td>Brand:</td>
+          <td><%=  @booking.vehicle.brand %></td>
+        </tr>
+        <tr>
+          <td>Model:</td>
+          <td> <%= @booking.vehicle.model %></td>
+        </tr>
+        <tr>
+          <td>CC:</td>
+          <td><%= @booking.vehicle.cc %></td>
+        </tr>
+        <tr>
+          <td>Kms/day:</td>
+          <td><%= @booking.vehicle.kms %></td>
+        </tr>
+        <tr>
+          <td>Price/day: </td>
+          <td><%= @booking.vehicle.price  %>€</td>
+        </tr>
+        <tr>
+          <td>Pick Up</td>
+          <td><%=  @booking.date_from %></td>
+        </tr>
+        <tr>
+          <td>Drop Off</td>
+          <td><%= @booking.date_to %></td>
+        </tr>
+      </table>
+     </div>
+     <div class="col-md-6 text-center">
       <% if @booking.vehicle.photo? %>
-      <%= cl_image_tag @booking.vehicle.photo.path, width: 100, height: 100, crop: :fill %>
+      <%= cl_image_tag @booking.vehicle.photo.path,height: 300, crop: :scale %>
       <% end %>
     </div>
+   </div>
+
+  <div class="row">
+    <%= link_to "Back to vehicles", vehicles_path, class:"btn btn-info" %>
   </div>
-    <%= link_to "Back to vehicles", vehicles_path %>
-
-
 </div>
+
+
