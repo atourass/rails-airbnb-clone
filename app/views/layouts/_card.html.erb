@@ -1,5 +1,6 @@
 <% photo_path = vehicle.photo ? cl_image_path(vehicle.photo.path, height: 300, width: 400, crop: :fill) : image_path('placeholder.png') %>
 
+<%= link_to vehicle_path(vehicle) do  %>
 <div class="card"
   style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
          url('<%= photo_path %>')">
@@ -7,5 +8,5 @@
     <h2><%= vehicle.brand %></h2>
     <p><%= vehicle.model %></p>
   </div>
-  <%= link_to "See", vehicle_path(vehicle) %>
 </div>
+<% end %>
