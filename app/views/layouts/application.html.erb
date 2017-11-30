@@ -11,11 +11,9 @@
   <body>
    <%= render 'shared/flashes' %>
    <%= render 'layouts/navbar' %>
-   <div class="container-fluid no-padding">
     <div class="view">
       <%= yield %>
     </div>
-   </div>
    <%= render 'layouts/footer' %>
    <%= javascript_include_tag 'application' %>
    <%= cloudinary_js_config %>
