@@ -1,7 +1,7 @@
 <%= simple_form_for(@booking) do |f| %>
     <%= f.input :message %>
-    <%= f.input :date_from, as: :string, input_html: { class: 'datepicker' }, start_day: Date.today.day, order: [:day, :month, :year] %>
-    <%= f.input :date_to, as: :string, input_html: { class: 'datepicker' }, start_day: Date.today.day %>
+    <%= f.input :date_from, as: :date, html5: true, start_day: Date.today.day %>
+    <%= f.input :date_to, as: :string, as: :date, html5: true, start_day: Date.today.day %>
     <%= f.button :submit, class: "btn-success" %>
   </div>
 <% end %>
