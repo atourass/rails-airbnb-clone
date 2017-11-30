@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
 skip_before_action :authenticate_user!, only: :new
-before_action :set_booking, only: [:show, :edit, :update, :destroy]
+before_action :set_booking, only: [:cancel, :show, :edit, :update, :destroy]
 
   def index
     @vehicle = Vehicle.find(params[:id])
@@ -34,6 +34,12 @@ before_action :set_booking, only: [:show, :edit, :update, :destroy]
     else
       render :edit
     end
+  end
+
+  def cancel
+    @booking.status = "Cancelled"
+    @booking.save
+    redirect_to dashboard_path, notice: "Booking cancelled"
   end
 
   def destroy

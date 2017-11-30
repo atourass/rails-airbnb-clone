@@ -1,13 +1,13 @@
    <%= render 'message', booking: @booking %>
-   <% if current_user.id == @booking.vehicle.user.id %>
+    <% if current_user == @booking.vehicle.user %>
       <%= simple_form_for(@booking) do |f| %>
         <%= f.input :status, collection: %w(Accepted Declined) %>
         <%= f.button :submit, class: "btn-success" %>
       <% end %>
-   <% else %>
+    <% elsif @booking.date_from <= Date.today %>
       <div class="row">
         <div class="col-xs-12 text-center">
-        <%= link_to "Cancel", :back, class: "btn btn-danger", data: {:confirm => 'Are you sure?'}  %>
+          <%= button_to "Cancel", cancel_booking_path(@booking), class: "btn btn-danger", method: :patch %>
         </div>
       </div>
     <% end %>

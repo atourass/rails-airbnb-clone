@@ -1,10 +1,11 @@
 <div class="message">
   <% if booking.user.photo? %>
-    <%= cl_image_tag booking.user.photo.path, width: 30, height: 30, crop: :fill %>
+    <%= cl_image_tag booking.user.photo.path, class: "avatar" %>
+
   <% end %>
   <div class="message-name">
     <h3><%= booking.user.first_name %></h3>
-    <p><%= booking.created_at %></p>
+    <p><%= booking.created_at.strftime("%d/%m/%Y") %></p>
   </div>
   <div class="message-body">
     <p><strong><%= booking.message.split[0...4].join(' ')%></strong></p>
@@ -23,7 +24,7 @@
       <% when "Cancelled" %>
       <p class="status cancelled"><%= booking.status %></p>
       <% end %>
-    <p class="price"><%= booking.vehicle.price %></p>
+    <p class="price"><%= booking.vehicle.price %> €</p>
   </div>
   <div class="message-status">
     <%= link_to "Edit", edit_booking_path(booking) , class: "navbar-wagon-item navbar-wagon-link" %>
