@@ -48,6 +48,6 @@ before_action :set_booking, only: [:show, :edit, :update, :destroy]
   end
 
   def booking_params
-    params.require(:booking).permit(:date_from, :date_to, :message)
+    params.require(:booking).permit(:status, :date_from, :date_to, :message)
   end
 end
