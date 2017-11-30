@@ -26,6 +26,7 @@ class VehiclesController < ApplicationController
   def edit; end
 
   def update
+    binding.pry
     if @vehicle.update(vehicle_params)
       redirect_to vehicle_path(@vehicle)
     else
