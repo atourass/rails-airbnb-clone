@@ -4,7 +4,11 @@
      <h3>Booking number: <%= @booking.id %></h3>
        <h5>Status: <%= @booking.status %></h5>
       <div class="col-md-6">
-     <h5>Owner: <%= @booking.user.first_name %> <%= @booking.user.last_name %></h5>
+        <%if @booking.user.first_name? || @booking.user.last_name? %>
+        <h5>Owner:  <%= @booking.user.first_name %> <%= @booking.user.last_name %></h5>
+        <%else%>
+        <h5>Owner: <%= @booking.user.email%></h5>
+        <% end %>
       </div>
       <div class="col-md-6 text-center">
         <% if @booking.user.photo? %>
