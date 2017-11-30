@@ -3,6 +3,7 @@
   <div class="row">
     <div class="col-sm-12">
       <h4>Booking number: <%= @booking.id %></h4>
+      <h5>Status: <%= @booking.status %></h5>
       <% if @booking.user.photo? %>
         <%= cl_image_tag @booking.user.photo.path, width: 30, height: 30, crop: :fill %>
       <% end %>

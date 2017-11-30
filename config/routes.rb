@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 
   get 'dashboard', to: 'dashboard#index'
 
-  resources :bookings, only: [:show]
+  resources :bookings, only: [:show, :edit, :update] do
+    member do
+      patch 'cancel', to: 'bookings#cancel', as: 'cancel'
+    end
+  end
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :vehicles, only: [:index, :show, :new, :create, :edit, :update, :create] do
@@ -12,7 +16,7 @@ Rails.application.routes.draw do
       resources :bookings, only: [:index, :new, :create]
     end
   end
-  resources :bookings, only: [:edit, :update]
+
 
 
   mount Attachinary::Engine => "/attachinary"
