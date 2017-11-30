@@ -1,7 +1,7 @@
 class DashboardController < ApplicationController
   def index
-    @vehicles = Vehicle.all
-    @bookings = Booking.where(user: current_user)
+    @my_bookings = current_user.bookings
+    @customer_bookings = current_user.demands
   end
 end
 

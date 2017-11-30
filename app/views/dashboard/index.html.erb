@@ -2,8 +2,9 @@
   <div class="row">
 
     <div class="col-xs-6">
+      <h3>My bookings</h3>
       <ul class="list-group">
-        <% @bookings.each do |booking| %>
+        <% @my_bookings.each do |booking| %>
           <li class="list-group-item">
             <%= render 'bookings/message', booking: booking %>
           </li>
@@ -11,31 +12,19 @@
       </ul>
     </div>
 
-   <div class="col-xs-6 offset-6">
-    <%= link_to "Add a vehicle", new_vehicle_path %>
-     <ul class="list-group">
-        <% @vehicles.each do |vehicle| %>
+    <div class="col-xs-6 offset-6">
+      <h3>Customer bookings</h3>
+      <ul class="list-group">
+        <% @customer_bookings.each do |booking| %>
           <li class="list-group-item">
-            <% photo_path = vehicle.photo ? cl_image_path(vehicle.photo.path, height: 300, width: 400, crop: :fill) : image_path('placeholder.png') %>
-
-            <div class="card"
-              style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)),
-                     url('<%= photo_path %>')">
-              <div class="card-description">
-                <h2><%= vehicle.brand %></h2>
-                <p><%= vehicle.model %></p>
-              </div>
-              <p>
-                <%= link_to "See", bookings_path(vehicle) %>
-              </p>
-              <p>
-                <%= link_to "Edit", edit_vehicle_path(vehicle) %>
-              </p>
-            </div>
+            <%= render 'bookings/message', booking: booking %>
           </li>
-         <% end %>
-     </ul>
-   </div>
-
+        <% end %>
+      </ul>
+    </div>
   </div>
 </div>
+
+
+
+
