@@ -1,6 +1,14 @@
    <%= render 'message', booking: @booking %>
-   <%= simple_form_for(@booking) do |f| %>
-    <%= f.input :status, collection: %w(Accepted Declined) %>
-    <%= f.button :submit, class: "btn-success" %>
-<% end %>
-   <%= link_to "Back to vehicles", vehicles_path %>
+   <% if current_user.id == @booking.vehicle.user.id %>
+      <%= simple_form_for(@booking) do |f| %>
+        <%= f.input :status, collection: %w(Accepted Declined) %>
+        <%= f.button :submit, class: "btn-success" %>
+      <% end %>
+   <% else %>
+      <div class="row">
+        <div class="col-xs-12 text-center">
+        <%= link_to "Cancel", :back, class: "btn btn-danger", data: {:confirm => 'Are you sure?'}  %>
+        </div>
+      </div>
+    <% end %>
+   <%= link_to "Back", dashboard_path %>
