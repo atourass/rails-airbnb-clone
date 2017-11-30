@@ -1,31 +1,56 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-12">
+    <h3>Personal Information</h3>
+    <div class="col-md-6">
+      <p><%= @user.first_name %>  <%= @user.last_name %></p>
+    </div>
+    <div class="col-md-6 text-center">
       <% if @user.photo? %>
       <%= cl_image_tag @user.photo.path, width: 30, height: 30, crop: :fill %>
       <% end %>
-      <%= @user.first_name %>
-      <%= @user.last_name %>
     </div>
   </div>
-  <div class="row">
-    <div class="col-sm-12">
-      <h5>Brand: <%=  @vehicle.brand %></h5>
-      <h5>Model: <%= @vehicle.model %></h5>
-      <h5>CC: <%= @vehicle.cc %></h5>
-      <h5>Kms/day: <%= @vehicle.kms %></h5>
-      <h5>Price/day: <%= @vehicle.price  %>€</h5>
-    </div>
   </div>
+
+<div class="container">
   <div class="row">
-    <div class="col-sm-12">
+    <h3>Technical Information</h3>
+    <div class="col-md-6">
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td>Brand:</td>
+            <td><%=  @vehicle.brand %></td>
+          </tr>
+           <tr>
+            <td>Model:</td>
+            <td><%= @vehicle.model %></td>
+          </tr>
+           <tr>
+            <td>Engine (cc):</td>
+            <td><%= @vehicle.cc %></td>
+          </tr>
+           <tr>
+            <td>Kms/day:</td>
+            <td><%= @vehicle.kms %></td>
+          </tr>
+          <tr>
+            <td>Price/day in €:</td>
+            <td><%= @vehicle.price %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-6 text-center">
       <% if @vehicle.photo? %>
       <%= cl_image_tag @vehicle.photo.path, width: 100, height: 100, crop: :fill %>
       <% end %>
     </div>
   </div>
-
-  <%= link_to "Book", new_booking_path  %>
-   <%= link_to "Back to vehicles", vehicles_path %>
+  <div class="row">
+    <%= link_to "Book", new_booking_path, class: "btn btn-primary" %>
+    <%= link_to "Back to vehicles", vehicles_path, class: "btn btn-info" %>
+  </div>
 </div>
+
