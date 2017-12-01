@@ -3,5 +3,6 @@
     <%= f.input :date_from, as: :date, html5: true, start_day: Date.today.day %>
     <%= f.input :date_to, as: :string, as: :date, html5: true, start_day: Date.today.day %>
     <%= f.button :submit, class: "btn-success" %>
+    <%= link_to "Back to vehicles", vehicles_path, class: "btn btn-primary" %>
   </div>
 <% end %>

@@ -1,0 +1,9 @@
+<div class="card" height="250" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url("<%= cloudinary_url vehicle.photo.path %>")'>
+  <div class="card-description">
+    <p><%= vehicle.user.first_name %></p>
+    <p><%= vehicle.user.last_name %></p>
+  </div>
+  <% if vehicle.user.photo? %>
+   <%= cl_image_tag vehicle.user.photo.path, class: "card-user" %>
+   <% end %>
+</div>

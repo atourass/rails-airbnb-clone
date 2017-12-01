@@ -1,66 +1,13 @@
-
 <div class="container">
   <div class="row">
-     <h3>Booking number: <%= @booking.id %></h3>
-       <h5>Status: <%= @booking.status %></h5>
       <div class="col-md-6">
-        <%if @booking.user.first_name? && @booking.user.last_name? %>
-          <h5>Owner:  <%= @booking.vehicle.user.first_name %> <%= @booking.vehicle.user.last_name %></h5>
-        <% end %>
-      </div>
-      <div class="col-md-6 text-center">
-        <% if @booking.vehicle.user.photo? %>
-        <%= cl_image_tag @booking.vehicle.user.photo.path, width: 30, height: 30, crop: :fill %>
-      <% end %>
-      </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <h3>Booking Information</h3>
-      <div class="col-md-6">
-      <table class="table table-striped">
-        <tr>
-          <td>Brand:</td>
-          <td><%=  @booking.vehicle.brand %></td>
-        </tr>
-        <tr>
-          <td>Model:</td>
-          <td> <%= @booking.vehicle.model %></td>
-        </tr>
-        <tr>
-          <td>CC:</td>
-          <td><%= @booking.vehicle.cc %></td>
-        </tr>
-        <tr>
-          <td>Kms/day:</td>
-          <td><%= @booking.vehicle.kms %></td>
-        </tr>
-        <tr>
-          <td>Price/day: </td>
-          <td><%= @booking.vehicle.price  %>€</td>
-        </tr>
-        <tr>
-          <td>Total Price: </td>
-          <td><%= @booking.price %>€</td>
-        </tr>
-        <tr>
-          <td>Pick Up</td>
-          <td><%=  @booking.date_from %></td>
-        </tr>
-        <tr>
-          <td>Drop Off</td>
-          <td><%= @booking.date_to %></td>
-        </tr>
-      </table>
+        <h3>Booking Informations</h3>
+        <%= render 'table', booking: @booking %>
      </div>
      <div class="col-md-6 text-center">
-      <% if @booking.vehicle.photo? %>
-      <%= cl_image_tag @booking.vehicle.photo.path,height: 300, crop: :scale %>
-      <% end %>
+      <%= render 'vehicles/card', vehicle: @booking.vehicle %>
     </div>
-   </div>
+  </div>
 
   <div class="row">
     <%= link_to "Back to vehicles", vehicles_path, class: "btn btn-primary" %>

@@ -1,51 +1,13 @@
 <div class="container">
-  <div class="row">
-    <h3>Personal Information</h3>
-    <div class="col-md-6">
-      <p><%= @vehicle.user.first_name %>  <%= @vehicle.user.last_name %></p>
-      <p><%= @vehicle.user.presentation %></p>
-    </div>
-  </div>
 
   <div class="row">
-    <h3>Technical Information</h3>
     <div class="col-md-6">
-      <table class="table table-striped">
-        <tbody>
-          <tr>
-            <td>Brand:</td>
-            <td><%=  @vehicle.brand %></td>
-          </tr>
-           <tr>
-            <td>Model:</td>
-            <td><%= @vehicle.model %></td>
-          </tr>
-           <tr>
-            <td>Engine (cc):</td>
-            <td><%= @vehicle.cc %></td>
-          </tr>
-           <tr>
-            <td>Kms/day:</td>
-            <td><%= @vehicle.kms %></td>
-          </tr>
-          <tr>
-            <td>Price/day in €:</td>
-            <td><%= @vehicle.price %></td>
-          </tr>
-        </tbody>
-      </table>
+      <h3>Technical Information</h3>
+      <%= render 'table', vehicle: @vehicle %>
     </div>
     <div class="col-md-6 text-center">
       <% if @vehicle.photo? %>
-        <div class="card" height="250" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url("<%= cloudinary_url @vehicle.photo.path %>")'>
-          <div class="card-description">
-            <p><%= @user.first_name %></p>
-            <p><%= @user.last_name %></p>
-          </div>
-          <% if @vehicle.user.photo? %>
-           <%= cl_image_tag @vehicle.user.photo.path, class: "card-user" %>
-           <% end %>
-        </div>
+        <%= render 'card', vehicle: @vehicle %>
       <% end %>
     </div>
   </div>
