@@ -10,9 +10,7 @@
       <% end %>
     </div>
   </div>
-  </div>
 
-<div class="container">
   <div class="row">
     <h3>Technical Information</h3>
     <div class="col-md-6">
@@ -43,7 +41,15 @@
     </div>
     <div class="col-md-6 text-center">
       <% if @vehicle.photo? %>
-      <%= cl_image_tag @vehicle.photo.path, width: 500, height: 350, crop: :fill %>
+        <div class="card" height="250" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url("<%= cloudinary_url @vehicle.photo.path %>")'>
+          <div class="card-description">
+            <p><%= @user.first_name %></p>
+            <p><%= @user.last_name %></p>
+          </div>
+          <% if @user.photo? %>
+           <%= cl_image_tag @user.photo.path, heigth: 70, width: 70, gravity: "face", crop: "crop", class: "card-user" %>
+           <% end %>
+        </div>
       <% end %>
     </div>
   </div>
@@ -56,4 +62,5 @@
     <%= link_to "Back to vehicles", vehicles_path, class: "btn btn-primary" %>
   </div>
 </div>
+
 
