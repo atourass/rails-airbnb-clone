@@ -34,12 +34,10 @@ class VehiclesController < ApplicationController
   end
 
   def destroy
-    if @vehicle.bookings.nil?
-      @vehicle.destroy
-      redirect_to vehicles_path
-    else
-      raise "Cannot delete vehicle with bookings"
-    end
+    @vehicle = Vehicle.find(params[:id])
+    @user = @vehicle.user
+    @vehicle.destroy
+    redirect_to vehicles_path
   end
 
   private
