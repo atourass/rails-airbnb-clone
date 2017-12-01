@@ -9,7 +9,7 @@ Vehicle.destroy_all
 User.destroy_all
 
 require 'faker'
-BRANDS = %w(Honda, Suzuki, Harley, BMW, Kawasaki)
+BRANDS = %w(Honda Suzuki Harley BMW Kawasaki Vespa Yamaha Triumph Ducati Piaggio)
 10.times do
   user = User.create!(
     email: Faker::Internet.email,
@@ -25,5 +25,7 @@ BRANDS = %w(Honda, Suzuki, Harley, BMW, Kawasaki)
     vehicle.save
 end
 
-
-puts 'Finished!'
+antoine = User.create!(
+  email: antoine.tourasse@gmail.com,
+  password: testtest
+)

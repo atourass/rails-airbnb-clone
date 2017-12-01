@@ -17,6 +17,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'devise'
+gem 'faker'
 
 # images
 gem 'cloudinary', '1.1.7'
