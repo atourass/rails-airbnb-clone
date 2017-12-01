@@ -5,7 +5,9 @@ class Booking < ApplicationRecord
   validate :dates_validations
 
   def dates_validations
-    errors.add(:date_from, "can't be in the past") if date_from < Date.today
-    errors.add(:date_to, "can't be earlier than date of pick up") if date_from > date_to
+    if !date_from.nil? && !date_to.nil?
+      errors.add(:date_from, "can't be in the past") if date_from < Date.today
+      errors.add(:date_to, "can't be earlier than date of pick up") if date_from > date_to
+    end
   end
 end
