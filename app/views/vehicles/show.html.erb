@@ -3,14 +3,11 @@
   <div class="row">
     <h3>Personal Information</h3>
     <div class="col-md-6">
-      <p><%= @user.first_name %>  <%= @user.last_name %></p>
-      <% if @user.photo? %>
-      <%= cl_image_tag @user.photo.path, heigth: 70, width: 70, gravity: "face", crop: "crop", class: "avatar-large" %>
-      <% end %>
+      <p><%= @user.first_name %>  <%= @user.last_name %> </p>
+      <p><%= @user.presentation %></p>
     </div>
   </div>
 
-<div class="container">
   <div class="row">
     <h3>Technical Information</h3>
     <div class="col-md-6">
@@ -39,22 +36,26 @@
         </tbody>
       </table>
     </div>
-    <div class="row">
-      <div class="col-md-6 text-center">
-        <% if @vehicle.photo? %>
-          <%= cl_image_tag @vehicle.photo.path, height: 200, crop: "scale", style: "background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2));" %>
-          <%= cl_image_tag @vehicle.user.photo.path, class: "card-user" %>
-        <% end %>
-      </div>
+    <div class="col-md-6 text-center">
+      <% if @vehicle.photo? %>
+        <div class="card" height="250" style='background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url("<%= cloudinary_url @vehicle.photo.path %>")'>
+          <div class="card-description">
+            <p><%= @user.first_name %></p>
+            <p><%= @user.last_name %></p>
+          </div>
+          <% if @user.photo? %>
+           <%= cl_image_tag @user.photo.path, heigth: 70, width: 70, gravity: "face", crop: "crop", class: "card-user" %>
+           <% end %>
+        </div>
+      <% end %>
     </div>
+  </div>
+  <div class="row">
+    <%  if @vehicle.user != current_user %>
+      <%= link_to "Book", new_booking_path, class: "btn btn-primary" %>
+    <% end %>
+    <%= link_to "Back to vehicles", vehicles_path, class: "btn btn-info" %>
   </div>
 </div>
 
-  <div class="row">
-    <div class="col-md-6 text-center">
-      <%= link_to "Book", new_booking_path, class: "btn btn-primary" %>
-      <%= link_to "Back to vehicles", vehicles_path, class: "btn btn-info" %>
-    </div>
-  </div>
-</div>
 

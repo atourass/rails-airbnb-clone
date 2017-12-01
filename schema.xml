@@ -50,7 +50,7 @@
 <row name="email" null="0" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
 <default>'NULL'</default></row>
-<row name="adress" null="1" autoincrement="0">
+<row name="address" null="1" autoincrement="0">
 <datatype>MEDIUMTEXT</datatype>
 <default>NULL</default></row>
 <row name="telephone" null="1" autoincrement="0">
@@ -58,6 +58,9 @@
 <default>NULL</default></row>
 <row name="photo" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
+<default>NULL</default></row>
+<row name="presentation" null="1" autoincrement="0">
+<datatype>MEDIUMTEXT</datatype>
 <default>NULL</default></row>
 <key type="PRIMARY" name="">
 <part>id</part>
@@ -165,3 +168,4 @@
 </key>
 </table>
 </sql>
+

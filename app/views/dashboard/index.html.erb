@@ -1,8 +1,7 @@
 <div class="container">
-  <div class="row">
-
-    <div class="col-xs-6">
-      <h3>My bookings</h3>
+  <div class="row" id="bookings">
+    <h3>My Bookings</h3>
+    <div class="col-xs-12">
       <ul class="list-group">
         <% @my_bookings.each do |booking| %>
           <li class="list-group-item">
@@ -11,13 +10,22 @@
         <% end %>
       </ul>
     </div>
-
-    <div class="col-xs-6 offset-6">
-      <h3>Customer bookings</h3>
+  </div>
+  <div class="row" id="vehicles">
+    <h3>My Vehicles</h3>
+    <% @my_vehicles.each do |vehicle| %>
+    <div class="col-xs-4" id="vehicles">
+        <%= render 'layouts/card', vehicle: vehicle %>
+    </div>
+    <% end %>
+  </div>
+  <div class="row" id="requests">
+    <h3>My Requests</h3>
+    <div class="col-xs-12">
       <ul class="list-group">
-        <% @customer_bookings.each do |booking| %>
+        <% @customer_bookings.each do |request| %>
           <li class="list-group-item">
-            <%= render 'bookings/message', booking: booking %>
+            <%= render 'bookings/message', booking: request %>
           </li>
         <% end %>
       </ul>
