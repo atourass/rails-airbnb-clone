@@ -8,6 +8,9 @@
     <%= f.input :photo, as: :attachinary %>
     <%= f.button :submit, class: "btn-success" %>
     <%= link_to "Back to vehicles", vehicles_path, class: "btn btn-primary" %>
+    <% if vehicle.id? %>
+      <%= link_to "Delete", vehicle_path(vehicle.id), class: "btn btn-danger", data: {:confirm => 'Are you sure?'}, :method => :delete  %>
+    <% end %>
 <% end %>
 
 
