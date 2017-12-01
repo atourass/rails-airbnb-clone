@@ -8,5 +8,8 @@
     <h2><%= vehicle.brand %></h2>
     <p><%= vehicle.model %></p>
   </div>
+    <% if vehicle.user.photo? %>
+      <%= cl_image_tag vehicle.user.photo.path, class: "card-user" %>
+   <% end %>
 </div>
 <% end %>
