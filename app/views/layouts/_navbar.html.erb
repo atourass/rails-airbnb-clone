@@ -30,7 +30,9 @@
       </div>
     </div>
 
-    <%= link_to "Log in", user_session_path , class: "navbar-wagon-item navbar-wagon-link" %>
+    <% if !current_user %>
+      <%= link_to "Log in", user_session_path , class: "navbar-wagon-item navbar-wagon-link" %>
+    <% end %>
 
 
 
