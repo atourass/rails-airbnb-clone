@@ -3,6 +3,12 @@
   <div class="banner-content">
     <h1>HELMETT</h1>
     <p>Rent a real bike easily</p>
-    <a class="btn btn-primary btn-lg">Start now</a>
+    <% if current_user %>
+      <%= link_to "Start now", vehicles_path(anchor: 'vehicles'), class: "btn btn-primary btn-lg" %>
+    <% else %>
+       <%= link_to "Start now", new_user_session_path, class: "btn btn-primary btn-lg" %>
+
+<!--         <a class="btn btn-primary btn-lg">Start now</a> -->
+    <% end %>
   </div>
 </div>
