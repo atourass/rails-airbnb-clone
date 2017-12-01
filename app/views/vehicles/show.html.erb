@@ -3,11 +3,7 @@
     <h3>Personal Information</h3>
     <div class="col-md-6">
       <p><%= @vehicle.user.first_name %>  <%= @vehicle.user.last_name %></p>
-    </div>
-    <div class="col-md-6 text-center">
-      <% if @vehicle.user.photo? %>
-      <%= cl_image_tag @user.photo.path, width: 30, height: 30, crop: :fill %>
-      <% end %>
+      <p><%= @vehicle.user.presentation %></p>
     </div>
   </div>
 
@@ -46,8 +42,8 @@
             <p><%= @user.first_name %></p>
             <p><%= @user.last_name %></p>
           </div>
-          <% if @user.photo? %>
-           <%= cl_image_tag @user.photo.path, heigth: 70, width: 70, gravity: "face", crop: "crop", class: "card-user" %>
+          <% if @vehicle.user.photo? %>
+           <%= cl_image_tag @vehicle.user.photo.path, class: "card-user" %>
            <% end %>
         </div>
       <% end %>
