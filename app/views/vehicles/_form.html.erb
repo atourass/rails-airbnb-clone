@@ -1,10 +1,16 @@
 <%= simple_form_for(vehicle) do |f| %>
     <%= f.input :brand %>
     <%= f.input :model %>
+    <%= f.input :cc %>
     <%= f.input :price %>
     <%= f.input :kms, label: "Kms allowed per day" %>
-    <%= f.text_field :description %>
+    <%= f.input :description %>
     <%= f.input :photo, as: :attachinary %>
     <%= f.button :submit, class: "btn-success" %>
-  </div>
+    <%= link_to "Back to vehicles", vehicles_path, class: "btn btn-primary" %>
 <% end %>
+
+
+
+
+
