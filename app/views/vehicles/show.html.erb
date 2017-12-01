@@ -1,4 +1,3 @@
-
 <div class="container">
   <div class="row">
     <h3>Personal Information</h3>
@@ -52,7 +51,8 @@
     <%  if @vehicle.user != current_user %>
       <%= link_to "Book", new_booking_path, class: "btn btn-primary" %>
     <% end %>
-    <%= link_to "Back to vehicles", vehicles_path, class: "btn btn-info" %>
+    <%= link_to "Back to vehicles", vehicles_path, class: "btn btn-primary" %>
+    <%= link_to "Edit vehicle", edit_vehicle_path(@vehicle), class: "btn btn-success" %>
   </div>
 </div>
 

@@ -26,6 +26,6 @@ BRANDS = %w(Honda Suzuki Harley BMW Kawasaki Vespa Yamaha Triumph Ducati Piaggio
 end
 
 antoine = User.create!(
-  email: antoine.tourasse@gmail.com,
-  password: testtest
+  email: "antoine.tourasse@gmail.com",
+  password: "testtest"
 )
