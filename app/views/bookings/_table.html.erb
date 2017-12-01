@@ -1,0 +1,41 @@
+<table class="table table-striped">
+  <tr>
+    <td>Number:</td>
+    <td><%= booking.id %></td>
+  <tr>
+  <tr>
+    <td>Status:</td>
+    <td><%= booking.status %></td>
+  <tr>
+    <td>Brand:</td>
+    <td><%=  booking.vehicle.brand %></td>
+  </tr>
+  <tr>
+    <td>Model:</td>
+    <td> <%= booking.vehicle.model %></td>
+  </tr>
+  <tr>
+    <td>CC:</td>
+    <td><%= booking.vehicle.cc %></td>
+  </tr>
+  <tr>
+    <td>Kms/day:</td>
+    <td><%= booking.vehicle.kms %></td>
+  </tr>
+  <tr>
+    <td>Price/day: </td>
+    <td><%= booking.vehicle.price  %>€</td>
+  </tr>
+  <tr>
+    <td>Total Price: </td>
+    <td><%= booking.price %>€</td>
+  </tr>
+  <tr>
+    <td>Pick Up</td>
+    <td><%=  booking.date_from %></td>
+  </tr>
+  <tr>
+    <td>Drop Off</td>
+    <td><%= booking.date_to %></td>
+  </tr>
+</table>
