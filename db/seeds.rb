@@ -26,7 +26,7 @@ bill = User.create!(
 )
 
 michel = User.create!(
-  email: "michel@gmail.com"
+  email: "michel@gmail.com",
   password: "testtest",
   first_name: "Michel",
   last_name: "Blanc"
@@ -35,7 +35,7 @@ michel = User.create!(
 johnny = User.create!(
   email: "johnny@gmail.com",
   password: "testtest",
-  first_name: "Johnny"
+  first_name: "Johnny",
   last_name: "Holiday"
 )
 
