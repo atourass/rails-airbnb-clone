@@ -3,6 +3,7 @@ class Booking < ApplicationRecord
   belongs_to :vehicle
   validates :vehicle, :user, :date_from, :date_to, :message, presence: true
   validate :dates_validations
+  after_validation :calc_price
 
   def dates_validations
     if !date_from.nil? && !date_to.nil?
@@ -10,4 +11,15 @@ class Booking < ApplicationRecord
       errors.add(:date_to, "can't be earlier than date of pick up") if date_from > date_to
     end
   end
+
+  def calc_price
+    duration = (self.date_to - self.date_from).to_i
+    duration += 1
+    if duration == 0
+      self.price = self.vehicle.price
+    else
+      self.price = self.vehicle.price * duration
+    end
+  end
+
 end

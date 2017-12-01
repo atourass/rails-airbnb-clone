@@ -1,7 +1,6 @@
 <div class="message">
   <% if booking.user.photo? %>
     <%= cl_image_tag booking.user.photo.path, class: "avatar" %>
-
   <% end %>
   <div class="message-name">
     <h3><%= booking.user.first_name %></h3>
@@ -24,7 +23,7 @@
       <% when "Cancelled" %>
       <p class="status cancelled"><%= booking.status %></p>
       <% end %>
-    <p class="price"><%= booking.vehicle.price %> €</p>
+     <p class="price"><%= booking.price %> €</p>
   </div>
   <div class="message-status">
     <%= link_to "Edit", edit_booking_path(booking) , class: "navbar-wagon-item navbar-wagon-link" %>
