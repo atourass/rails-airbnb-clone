@@ -5,14 +5,12 @@
        <h5>Status: <%= @booking.status %></h5>
       <div class="col-md-6">
         <%if @booking.user.first_name? && @booking.user.last_name? %>
-        <h5>Owner:  <%= @booking.user.first_name %> <%= @booking.user.last_name %></h5>
-        <%else%>
-        <h5>Owner: <%= @booking.user.email%></h5>
+          <h5>Owner:  <%= @booking.vehicle.user.first_name %> <%= @booking.vehicle.user.last_name %></h5>
         <% end %>
       </div>
       <div class="col-md-6 text-center">
-        <% if @booking.user.photo? %>
-        <%= cl_image_tag @booking.user.photo.path, width: 30, height: 30, crop: :fill %>
+        <% if @booking.vehicle.user.photo? %>
+        <%= cl_image_tag @booking.vehicle.user.photo.path, width: 30, height: 30, crop: :fill %>
       <% end %>
       </div>
   </div>

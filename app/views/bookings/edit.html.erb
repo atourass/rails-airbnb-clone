@@ -7,7 +7,7 @@
        <%= f.input :status, collection: %w(Accepted Declined) %>
        <%= f.button :submit, class: "btn-success" %>
        <% end %>
-       <% elsif @booking.date_from <= Date.today %>
+       <% elsif @booking.date_from >= Date.today %>
        <div class="row">
         <div class="col-xs-12 text-center">
           <%= button_to "Cancel", cancel_booking_path(@booking), class: "btn btn-danger", method: :patch %>
